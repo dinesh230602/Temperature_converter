@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #converter {
+      width: 500px;
+      margin: 0 auto;
+    }
+    #converter h1 {
+      text-align: center;
+    }
+    #converter form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #converter form input {
+      width: 200px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    #converter form button {
+      width: 200px;
+      padding: 5px;
+      background-color: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+    #converter p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="converter">
+    <h1>Temperature Converter</h1>
+    <form>
+      <input type="number" id="fahrenheit" placeholder="Fahrenheit">
+      <input type="number" id="celsius" placeholder="Celsius">
+      <button type="button" id="convert">Convert</button>
+    </form>
+    <p id="result"></p>
+  </div>
+  <script>
+    const fahrenheitInput = document.getElementById('fahrenheit');
+    const celsiusInput = document.getElementById('celsius');
+    const convertButton = document.getElementById('convert');
+    const result = document.getElementById('result');
+    convertButton.addEventListener('click', () => {
+      const fahrenheit = parseFloat(fahrenheitInput.value);
+      const celsius = parseFloat(celsiusInput.value);
+      if (fahrenheit) {
+        celsiusInput.value = ((fahrenheit - 32) * 5 / 9).toFixed(2);
+      } else if (celsius) {
+        fahrenheitInput.value = ((celsius * 9 / 5) + 32).toFixed(2);
+      }
+    });
+  </script>
